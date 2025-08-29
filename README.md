@@ -19,11 +19,25 @@ curl -X POST "https://your-deployment.up.railway.app/api/slack-text" \
 
 Should return the "Cold Outbound System" document with full SMS setup instructions.
 
-## Deploy to Railway
+## Deploy with Docker (Recommended)
 
-1. Connect this repo to Railway
-2. Deploy automatically 
-3. Test SMS queries
+### Local Testing
+```bash
+docker build -t sms-search-api .
+docker run -d -p 3000:8080 sms-search-api
+curl -X POST "http://localhost:3000/api/slack-text" -H "Content-Type: application/json" -d '{"query": "sms outreach sop"}'
+```
+
+### Deploy to Any Platform
+- **Railway**: Connect repo, will auto-detect Dockerfile
+- **Render**: Docker deployment 
+- **DigitalOcean**: Docker droplet
+- **AWS/GCP**: Container services
+
+## Alternative: Railway (May have compatibility issues)
+1. Connect this repo to Railway  
+2. Set port to 8080
+3. Deploy automatically
 
 ## Endpoints
 
