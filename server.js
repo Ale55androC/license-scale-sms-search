@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
+// Use built-in fetch (Node 18+)
 
 const app = express();
 const PORT = process.env.PORT || 8080;
